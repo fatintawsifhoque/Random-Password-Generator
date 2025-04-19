@@ -11,6 +11,12 @@ function passwordGenerator() {
 }
 
 function copy() {
-    password.select()
-    document.execCommand("copy")
+    const textToCopy = passwordBox.value; 
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => {
+            alert("Password copied to clipboard!"); 
+        })
+        .catch((error) => {
+            console.error("Failed to copy text: ", error); 
+        });
 }
